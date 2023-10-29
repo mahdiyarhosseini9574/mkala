@@ -7,3 +7,5 @@ enum UserMaritalStatusEnum: string
     case SINGLE = "single";
     case MARRIED = "married";
 }
+
+
