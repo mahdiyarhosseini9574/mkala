@@ -19,12 +19,11 @@ class BlogFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name,
             'title' => fake()->title,
             'description' => fake()->paragraph(1),
             'meta_description' => fake()->paragraph(3),
-            'user_id' => User::inRandomOrder()->first()->id,
-            'category_id' => Category::inRandomOrder()->first()->id,
+            'user_id' => User::factory(),
+            'category_id' => Category::factory(),
         ];
     }
 }

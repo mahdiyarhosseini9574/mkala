@@ -10,4 +10,8 @@ interface BlogRepositoryInterface extends BaseRepositoryInterface
 {
     public function toggle(Blog $blog): Blog;
 
+    public function mostView();
+
+    public function mostCommented();
+
 }

@@ -13,9 +13,6 @@ class BlogSeeder extends Seeder
      */
     public function run(): void
     {
-        Blog::factory(10)
-            ->hasImages(2)
-            ->hasComments(2)
-            ->create();
+//
     }
 }

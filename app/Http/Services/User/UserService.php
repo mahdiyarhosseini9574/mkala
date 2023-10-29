@@ -2,16 +2,14 @@
 
 namespace App\Http\Services\User;
 
-use App\Http\Services\Product\ProductService;
 use App\Models\User;
 
 class UserService
 {
-    private ProductService  $productservice;
 
-    public function __construct(ProductService $service)
+    public function __construct()
     {
-        $this->productservice = $service;
+
     }
 
     public function store(array $payload): User
@@ -21,11 +19,12 @@ class UserService
 
     public function update(User $user, array $payload): User
     {
-        return $user->update($payload);
+            $user->update($payload);
+            return $user;
     }
 
-    public function buyproduct(Product $product)
-    {
-$this->productservice->buy($product,auth()->user());
-    }
+//    public function buyproduct(Product $product)
+//    {
+//$this->$product->buy($product,auth()->user());
+//    }
 }

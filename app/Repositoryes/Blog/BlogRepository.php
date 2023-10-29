@@ -4,8 +4,6 @@ namespace App\Repositoryes\Blog;
 
 use App\Models\Blog;
 use App\Repositoryes\BaseRepository;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
 
 class BlogRepository extends BaseRepository implements BlogRepositoryInterface
 {
@@ -18,6 +16,24 @@ class BlogRepository extends BaseRepository implements BlogRepositoryInterface
 
     public function toggle(Blog $blog): Blog
     {
+        $blog->published = !$blog->published;
+        $blog->save();
+        return $blog;
+    }
 
+    public function mostView()
+    {
+        $mostviews = Blog::with(['views'])->withCount('views')
+            ->orderBy('views_count', 'desc')
+            ->take(5)
+            ->get();
+        return $mostviews;
+    }
+
+    public function mostCommented()
+    {
+        $mostcomment = Blog::withCount('comments')->orderBy('comments_count', 'desc')
+            ->take(5)->get();
+        return $mostcomment;
     }
 }

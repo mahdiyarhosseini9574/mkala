@@ -29,7 +29,7 @@ class BlogPolicy
      */
     public function create(User $user): bool
     {
-        return  true;
+        return true;
     }
 
     /**
@@ -37,7 +37,8 @@ class BlogPolicy
      */
     public function update(User $user, Blog $blog): bool
     {
-        return true;
+        return $user->id === $blog->user_id || $user->role === 'admin';
+
     }
 
     /**
@@ -45,7 +46,9 @@ class BlogPolicy
      */
     public function delete(User $user, Blog $blog): bool
     {
-        return false;
+        return $user->role === 'admin'||$user->id===$blog->user_id;
+
+
     }
 
     /**

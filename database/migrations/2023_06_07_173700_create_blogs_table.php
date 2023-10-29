@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->uuid()->unique();
             $table->string('title');
             $table->foreignId('user_id')
                 ->nullable()
@@ -24,6 +24,7 @@ return new class extends Migration
             $table->boolean('published')->default(false);
             $table->text('meta_description');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

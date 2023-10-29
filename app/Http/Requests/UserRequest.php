@@ -24,6 +24,7 @@ class UserRequest extends FormRequest
         $rules = [
             'name' => ['required'],
             'family' => ['required'],
+            'image'=>['file'],
 
         ];
         if ($this->method() == self::METHOD_PATCH) {

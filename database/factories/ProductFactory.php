@@ -23,9 +23,11 @@ class ProductFactory extends Factory
             'title' => fake()->title,
             'description' => fake()->paragraph('1'),
             'meta_description' => fake()->paragraph('3'),
-            'user_id' => User::inRandomOrder()->first()->id,
-            'category_id' => Category::inRandomOrder()->first()->id,
-            'brand_id' => Brand::inRandomOrder()->first()->id,
+            'user_id' => User::factory(),
+            'category_id' => Category::factory(),
+            'brand_id' => Brand::factory(),
+            'inventory'=>rand(1,10),
+            'price'=>rand(50,5000)
         ];
 
 

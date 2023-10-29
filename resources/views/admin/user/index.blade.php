@@ -13,7 +13,7 @@
 
 <body>
 
-<h4>{{auth()->user()->name}}</h4>
+<h4>{{auth()->user()->name??null}}</h4>
 <table class="table">
     <thead>
 
@@ -34,10 +34,10 @@
 
 
         <td>{{$user->id}}</td>
-        <td>{{$user->name}}</td>
-        <td>{{$user->family}}</td>
-        <td>{{$user->email}}</td>
-        <td>{{$user->phone}}</td>
+        <td>{{$user->name??null}}</td>
+        <td>{{$user->family??null}}</td>
+        <td>{{$user->email??null}}</td>
+        <td>{{$user->phone??null}}</td>
         <td>
 
 

@@ -57,6 +57,8 @@ return [
 
     'url' => env('APP_URL', 'http://localhost'),
 
+    'frontend_url' => env('FRONTEND_URL', 'http://localhost:3000'),
+
     'asset_url' => env('ASSET_URL'),
 
     /*
@@ -163,6 +165,8 @@ return [
         /*
          * Application Service Providers...
          */
+        Zoha\Meta\MetaServiceProvider::class,
+        \App\Providers\RepositoryProvider::class,
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
@@ -183,6 +187,8 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
+        'Meta' => Zoha\Meta\Facades\MetaFacade::class,
+
     ])->toArray(),
 
 ];

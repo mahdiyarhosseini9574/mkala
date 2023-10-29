@@ -17,7 +17,9 @@ class ImageFactory extends Factory
     public function definition(): array
     {
         return [
-            'url'=> 'gfghfghjv'.rand(1,20).'.jpg'
+            'url'=> 'gfghfghjv'.rand(1,20).'.jpg',
+            'size'=>rand(20,30).'.mb',
+            'extension' => fake()->randomElement(['mp3','mp4','4K'])
         ];
     }
 }

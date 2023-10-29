@@ -13,13 +13,18 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->uuid()->unique();
             $table->string('title');
-            $table->foreignId('user_id')->comment('seller')->constrained();
-            $table->foreignId('category_id')->constrained();
-            $table->foreignId('brand_id')->constrained();
+            $table->foreignId('user_id')->comment('seller')->constrained()->cascadeOnDelete();
+            $table->foreignId('category_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('brand_id')->constrained()->cascadeOnDelete();
             $table->text('description');
+            $table->boolean('published')->default(false);
+            $table->decimal('inventory')->default(1);
+            $table->decimal('price');
             $table->text('meta_description');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

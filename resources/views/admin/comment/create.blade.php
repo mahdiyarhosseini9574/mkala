@@ -22,7 +22,7 @@
 
     <label >please inter comment id:</label><br>
     <input type="text"  name="commentable_id"><br>
-    <p>Please select comment baraye chie mikhay bezary:</p>
+    <p> comment baraye chie mikhay bezary:</p>
     <input type="radio"  name="commentable_type" value="product">
     <label >product</label><br>
     <input type="radio" name="commentable_type" value="blog">

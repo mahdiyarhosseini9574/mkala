@@ -23,23 +23,28 @@ class ProductRequest extends FormRequest
     {
         $rules = [
 
-            'name' => ['required'],
+            'title' => ['required'],
             'description' => ['required'],
             'meta_description' => ['required'],
+            'category_id' => ['required', 'exists:categories,id'],
+            'brand_id' => ['required', 'exists:brands,id'],
+            'deleted_at' => ['nullable', 'date'],
+            'image'=>['file']
         ];
-        if ($this->method() == self::METHOD_POST) {
-            $rules['user_id'] = ['required'];
-            $rules['category_id'] = ['required'];
-            $rules['brand_id'] = ['required'];
-            if ($this->method() == self::METHOD_PATCH) {
-                $rules['user_id'] = ['required', 'exists:users'];
-                $rules  ['category_id'] = ['required', 'exists:categories'];
-                $rules ['brand_id'] = ['required', 'exists:brands'];
+        return $rules;
+
+//        if ($this->method() == self::METHOD_POST) {
+//            $rules['user_id'] = ['required'];
+//            $rules['category_id'] = ['required'];
+//            $rules['brand_id'] = ['required'];
+//            if ($this->method() == self::METHOD_PATCH) {
+////                $rules['user_id'] = ['required', 'exists:users'];
+//                $rules  ['category_id'] = ['required', 'exists:categories'];
+//                $rules ['brand_id'] = ['required', 'exists:brands'];
 
             }
-        }
 
 
-        return $rules;
-    }
+
+
 }

@@ -22,11 +22,12 @@ class BlogRequest extends FormRequest
     public function rules(): array
     {
         $rules= [
-            'name' => ['required'],
-            'user_id' => ['required', 'exists:users,id'],
+
+            'title' => ['required'],
             'category_id' => ['required', 'exists:categories,id'],
             'description' => ['required'],
             'meta_description' => ['required'],
+            'image' => ['file']
 
         ];
 
